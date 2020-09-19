@@ -443,19 +443,19 @@ def motor_recon_met2(TE_array, path_to_data, path_to_mask, path_to_save_data, TR
 
     # -------------------------- Save all datasets -----------------------------
     outImg = nib.Nifti1Image(fM, img.affine)
-    nib.save(outImg, path_to_save_data + 'fM.nii.gz')
+    nib.save(outImg, path_to_save_data + 'MWF.nii.gz')
 
     outImg = nib.Nifti1Image(fIE, img.affine)
-    nib.save(outImg, path_to_save_data + 'fIE.nii.gz')
+    nib.save(outImg, path_to_save_data + 'IEWF.nii.gz')
 
     outImg = nib.Nifti1Image(fnT, img.affine)
-    nib.save(outImg, path_to_save_data + 'fnT.nii.gz')
+    nib.save(outImg, path_to_save_data + 'nTWF.nii.gz')
 
     outImg = nib.Nifti1Image(fCSF, img.affine)
-    nib.save(outImg, path_to_save_data + 'fCSF.nii.gz')
+    nib.save(outImg, path_to_save_data + 'CSFWF.nii.gz')
 
     outImg = nib.Nifti1Image(T2m, img.affine)
-    nib.save(outImg, path_to_save_data + 'T2_m.nii.gz')
+    nib.save(outImg, path_to_save_data + 'T2_M.nii.gz')
 
     outImg = nib.Nifti1Image(T2IE, img.affine)
     nib.save(outImg, path_to_save_data + 'T2_IE.nii.gz')
@@ -464,7 +464,7 @@ def motor_recon_met2(TE_array, path_to_data, path_to_mask, path_to_save_data, TR
     nib.save(outImg, path_to_save_data + 'T2_nt.nii.gz')
 
     outImg = nib.Nifti1Image(Ktotal, img.affine)
-    nib.save(outImg, path_to_save_data + 'Ktotal.nii.gz')
+    nib.save(outImg, path_to_save_data + 'PD.nii.gz')
 
     outImg = nib.Nifti1Image(FA, img.affine)
     nib.save(outImg, path_to_save_data + 'FA.nii.gz')
