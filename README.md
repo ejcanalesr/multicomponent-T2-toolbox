@@ -74,12 +74,12 @@ optional arguments:
 ```
 
 For more details see the script: example_script_run_MET2_preproc_and_recon.sh
-We included some optional pre- and post-processing steps using FSL and Mrtrix3:
+We included some optional pre- and post-processing steps using FSL (https://fsl.fmrib.ox.ac.uk/fsl/fslwiki) and MRtrix3 (https://www.mrtrix.org/):
 
 ```
 - Brain extraction for obtaining the brain mask (i.e., bet, FSL)
-- Denoising (i.e., dwidenoise, Mrtrix3)
-- Remove Gibbs Ringing Artifacts (i.e., mrdegibbs, Mrtrix3)
+- Denoising (i.e., dwidenoise, MRtrix3)
+- Remove Gibbs Ringing Artifacts (i.e., mrdegibbs, MRtrix3)
 - Bias-field correction of the estimated Proton Density map, and tissue segmentation to obtain WM, GM, and CSF probabilistic maps (i.e., fast, FSL)
 - Create images for visualizing and inspecting the estimated maps (i.e., slices, FSL)
 ```
