@@ -1,5 +1,7 @@
 ## Multi-component T2 relaxometry methods for myelin water quantification
 
+<img src="Graphical_abstract.tif" width="1082">
+
 **Implementation of the algorithms described here:**
 
 > **Comparison of multi-component T2 relaxometry methods for myelin water quantification. Under review (2020).**
@@ -87,8 +89,6 @@ We included some optional pre- and post-processing steps using FSL (https://fsl.
 ## Estimated maps
 
 The software will save the estimated T2 spectrum for each voxel (fsol_4D.nii.gz), the predicted signal (Est_Signal.nii.gz), as well as the following metrics derived from the spectrum: myelin water fraction (fM.nii.gz), intra- and extra-cellular water fraction (fIE.nii.gz), free-water fraction (fCSF.nii.gz), the geometric mean T2s for these compartments (T2_IE.nii.gz, T2_m.nii.gz), the estimated flip angle (FA.nii.gz) and the proton density (Ktotal.nii.gz).
-
-
 
 ## Copyright and license
 
