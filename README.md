@@ -36,5 +36,5 @@ Primarily used for software libraries, the GNU LGPL requires that derived works 
 
 ## Help
 
-![](image.png)
+![alt text](http://url/to/img.png)
 
