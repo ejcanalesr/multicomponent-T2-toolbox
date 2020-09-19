@@ -429,12 +429,18 @@ def motor_recon_met2(TE_array, path_to_data, path_to_mask, path_to_save_data, TR
                     fnT [voxelx, voxely, voxelz] = np.sum(x_sol[ind_nt])
                     fCSF[voxelx, voxely, voxelz] = np.sum(x_sol[ind_csf])
                     # ------
-                    T2m [voxelx, voxely, voxelz] = np.sum(x_sol[ind_m] * T2s[ind_m])/(np.sum(x_sol[ind_m])   + epsilon)
+                    # Aritmetic mean
+                    #T2m [voxelx, voxely, voxelz] = np.sum(x_sol[ind_m] * T2s[ind_m])/(np.sum(x_sol[ind_m])   + epsilon)
+                    # Geometric mean
+                    T2m[voxelx, voxely, voxelz] = np.exp(np.sum(x_sol[ind_m] * logT2[ind_m])/(np.sum(x_sol[ind_m])   + epsilon))
                     # Aritmetic mean
                     # T2IE[voxelx, voxely, voxelz] = np.sum(x_sol[ind_t] * T2s[ind_t])/(np.sum(x_sol[ind_t])   + epsilon)
                     # Geometric mean: see Bjarnason TA. Proof that gmT2 is the reciprocal of gmR2. Concepts Magn Reson 2011; 38A: 128– 131.
                     T2IE[voxelx, voxely, voxelz] = np.exp(np.sum(x_sol[ind_t] * logT2[ind_t])/(np.sum(x_sol[ind_t])   + epsilon))
-                    T2nT[voxelx, voxely, voxelz] = np.sum(x_sol[ind_nt]* T2s[ind_nt])/(np.sum(x_sol[ind_nt]) + epsilon)
+                    # Aritmetic mean
+                    #T2nT[voxelx, voxely, voxelz] = np.sum(x_sol[ind_nt]* T2s[ind_nt])/(np.sum(x_sol[ind_nt]) + epsilon)
+                    # Geometric mean:
+                    T2nT[voxelx, voxely, voxelz] = np.exp(np.sum(x_sol[ind_nt] * logT2[ind_nt])/(np.sum(x_sol[ind_nt])   + epsilon))
                     Ktotal[voxelx, voxely, voxelz] = vt
                 # end if
             #end for z
