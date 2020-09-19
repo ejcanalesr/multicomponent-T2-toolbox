@@ -1,6 +1,6 @@
 ## Multi-component T2 relaxometry methods for myelin water quantification
 
-<img src="Graphical_Abstract.png" width="800">
+<img src="Graphical_Abstract.png" width="900">
 
 **Implementation of the algorithms described here:**
 
