@@ -93,8 +93,9 @@ The software will save the estimated T2 spectrum for each voxel (fsol_4D.nii.gz)
 ```
 - MWF.nii.gz, IEWF.nii.gz, and CSFWF.nii.gz: intra-voxel fractions of the myelin water, intra- and extra-cellular water, and free-water compartments, respectively. 
 - T2_IE.nii.gz, T2_M.nii.gz: geometric mean T2s for the intra- and extra-cellular water and myelin water compartments.
-- PD.nii.gz: proton density
-- FA.nii.gz: estimated flip angle
+- PD.nii.gz: proton density map
+- FA.nii.gz: estimated flip angle per voxel
+- reg_param.nii.gz: estimated regularization parameter per voxel
 ```
 
 ## Copyright and license
