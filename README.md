@@ -1,6 +1,6 @@
 ## Multi-component T2 relaxometry methods for myelin water quantification
 
-<img src="Graphical_Abstract.png" width="900">
+<img src="Graphical_Abstract.png" width="1082">
 
 **Implementation of the algorithms described here:**
 
@@ -81,14 +81,21 @@ We included some optional pre- and post-processing steps using FSL (https://fsl.
 ```
 - Brain extraction for obtaining the brain mask (i.e., bet, FSL)
 - Denoise (i.e., dwidenoise, MRtrix3)
-- Remove Gibbs Ringing Artifacts (i.e., mrdegibbs, MRtrix3)
-- Bias-field correction of the estimated Proton Density map, and segmentation to obtain WM, GM, and CSF probabilistic tissue-maps (i.e., fast, FSL)
+- Remove Gibbs ringing artifacts (i.e., mrdegibbs, MRtrix3)
+- Bias-field correction of the estimated proton density map, and segmentation to obtain WM, GM, and CSF probabilistic tissue-maps (i.e., fast, FSL)
 - Create images for visualizing and inspecting the estimated maps (i.e., slices, FSL)
 ```
 
 ## Estimated maps
 
-The software will save the estimated T2 spectrum for each voxel (fsol_4D.nii.gz), the predicted signal (Est_Signal.nii.gz), as well as the following metrics derived from the spectrum: myelin water fraction (fM.nii.gz), intra- and extra-cellular water fraction (fIE.nii.gz), free-water fraction (fCSF.nii.gz), the geometric mean T2s for these compartments (T2_IE.nii.gz, T2_m.nii.gz), the estimated flip angle (FA.nii.gz) and the proton density (Ktotal.nii.gz).
+The software will save the estimated T2 spectrum for each voxel (fsol_4D.nii.gz), the predicted signal (Est_Signal.nii.gz), as well as the following metrics derived from the spectrum.
+
+```
+- MWF.nii.gz, IEWF.nii.gz, and CSFWF.nii.gz: intra-voxel fractions of the myelin water, intra- and extra-cellular water, and free-water compartments, respectively. 
+- T2_IE.nii.gz, T2_M.nii.gz: geometric mean T2s for the intra- and extra-cellular water and myelin water compartments.
+- PD.nii.gz: proton density
+- FA.nii.gz: estimated flip angle
+```
 
 ## Copyright and license
 
