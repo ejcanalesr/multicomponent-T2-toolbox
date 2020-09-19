@@ -8,7 +8,7 @@ Erick Jorge Canales-Rodríguez, Marco Pizzolato, Gian Franco Piredda, Tom Hilber
 **We are using the MRI acquisition sequence described here:**
 
 > **Fast and high‐resolution myelin water imaging: Accelerating multi‐echo GRASE with CAIPIRINHA.**
-Gian Franco Piredda, Tom Hilbert, Erick Jorge Canales‐Rodríguez, Marco Pizzolato, Constantin von Deuster, Reto Meuli, Josef Pfeuffer, Alessandro Daducci, Jean‐Philippe Thiran, Tobias Kober. Magnetic Resonance in Medicine, 2020, https://doi.org/10.1002/mrm.28427
+Gian Franco Piredda, Tom Hilbert, Erick Jorge Canales‐Rodríguez, Marco Pizzolato, Constantin von Deuster, Reto Meuli, Josef Pfeuffer, Alessandro Daducci, Jean‐Philippe Thiran, Tobias Kober. **Magnetic Resonance in Medicine**, 2020, https://doi.org/10.1002/mrm.28427
 
 The current implementation is written in Python 2.7 (we plan to switch to Python 3.x.)
 
@@ -36,5 +36,5 @@ Primarily used for software libraries, the GNU LGPL requires that derived works 
 
 ## Help
 
-
+![](image.png)
 
