@@ -36,5 +36,7 @@ Primarily used for software libraries, the GNU LGPL requires that derived works 
 
 ## Help
 
-![alt text](http://url/to/img.png)
+> Open a terminal and write:
+
+<img src="screenshot.png" width="1082">
 
