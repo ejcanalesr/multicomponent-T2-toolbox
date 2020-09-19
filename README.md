@@ -36,7 +36,7 @@ Primarily used for software libraries, the GNU LGPL requires that derived works 
 
 ## Help
 
-> Open a terminal and write:
+Open a terminal and write:
 
 ```
 $ python run_real_data_script.py -h
@@ -79,6 +79,3 @@ optional arguments:
                         Maximum T2 for the myelin compartment: T2 threshold
                         (units: ms)
 ```
-
-<img src="screenshot.png" width="1082">
-
