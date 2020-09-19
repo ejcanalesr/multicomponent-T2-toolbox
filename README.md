@@ -75,9 +75,8 @@ optional arguments:
 
 For more details see the script: example_script_run_MET2_preproc_and_recon.sh
 
-We included some optional pre- and post-processing steps using FSL and Mrtrix3:
-
 ```
+We included some optional pre- and post-processing steps using FSL and Mrtrix3:
 
 - Brain extraction for obtaining the brain mask (i.e., bet, FSL)
 - Denoising (i.e., dwidenoise, Mrtrix3)
@@ -86,6 +85,10 @@ We included some optional pre- and post-processing steps using FSL and Mrtrix3:
 - Create images for visualizing and inspecting the estimated maps (i.e., slices, FSL)
 
 ```
+
+## Estimated maps
+
+The 
 
 ## Copyright and license
 
