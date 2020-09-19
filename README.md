@@ -73,7 +73,7 @@ optional arguments:
                         (units: ms)
 ```
 
-For more details see the script: example_script_run_MET2_preproc_and_recon.sh
+For more details see the script: **example_script_run_MET2_preproc_and_recon.sh**. 
 We included some optional pre- and post-processing steps using FSL (https://fsl.fmrib.ox.ac.uk/fsl/fslwiki) and MRtrix3 (https://www.mrtrix.org/):
 
 ```
