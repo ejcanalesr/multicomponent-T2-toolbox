@@ -38,5 +38,47 @@ Primarily used for software libraries, the GNU LGPL requires that derived works 
 
 > Open a terminal and write:
 
+```
+$ python run_real_data_script.py -h
+
+usage: run_real_data_script.py [-h] --minTE MINTE --nTE NTE --TR TR
+                               --FA_method {spline,brute-force} --FA_smooth
+                               {yes,no} --denoise {TV,NESMA,None} --reg_method
+                               {NNLS,X2-I,X2-L1,X2-L2,L_curve-I,L_curve-L1,L_curve-L2,GCV-I,GCV-L1,GCV-L2}
+                               --path_to_folder PATH_TO_FOLDER --input INPUT
+                               --mask MASK --savefig {yes,no} --savefig_slice
+                               SAVEFIG_SLICE [--numcores NUMCORES] --myelin_T2
+                               MYELIN_T2
+
+Myelin Water Imaging
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --minTE MINTE         Minimum Echo Time (TE, units: ms)
+  --nTE NTE             Number of TEs
+  --TR TR               Repetition Time (units: ms)
+  --FA_method {spline,brute-force}
+                        Method to estimate the flip angle (FA)
+  --FA_smooth {yes,no}  Smooth FA map for a robust estimation
+  --denoise {TV,NESMA,None}
+                        Denoise data
+  --reg_method {NNLS,X2-I,X2-L1,X2-L2,L_curve-I,L_curve-L1,L_curve-L2,GCV-I,GCV-L1,GCV-L2}
+                        Reconstruction algorithm
+  --path_to_folder PATH_TO_FOLDER
+                        Path to the folder where the data is located, e.g.,
+                        /home/Datasets/MET2/
+  --input INPUT         Input data, e.g., Data.nii.gz
+  --mask MASK           Brain mask, e.g., Mask.nii.gz
+  --savefig {yes,no}    Save reconstructed maps in .png
+  --savefig_slice SAVEFIG_SLICE
+                        Axial slice to save reconstructed maps, e.g.,
+                        --Slice=30
+  --numcores NUMCORES   Number of cores used in the computation: -1 = all
+                        cores
+  --myelin_T2 MYELIN_T2
+                        Maximum T2 for the myelin compartment: T2 threshold
+                        (units: ms)
+```
+
 <img src="screenshot.png" width="1082">
 
