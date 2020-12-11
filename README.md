@@ -10,9 +10,9 @@ Erick Jorge Canales-Rodríguez, Marco Pizzolato, Gian Franco Piredda, Tom Hilber
 > **T2 Spectrum Imaging for Myelin Water Quantification using Bayesian Regularized Non-Negative Least Squares. IEEE Transactions on Medical Imaging, under review, 2020**
 Erick Jorge Canales-Rodríguez, Marco Pizzolato, Thomas Yu, Gian Franco Piredda, Tom Hilbert, Tobias Kober, Jean-Philippe Thiran
 
-A number of non-parametric estimation algorithms were implemented, including the individual combinations of four penalty terms (i.e., **I** = identity matrix, **L1** = first-order Laplacian derivative, **L2** = second-order Laplacian derivative, and **InvT2** that takes into account the non-equidistant partition of the T2 grid) with four criteria to estimate the optimal regularization weight (i.e., Chi-square residual fitting (**X2**), **L-curve**, Generalized Cross-Validation (**GCV**), and a Bayesian regularized NNLS algorithm  **BayesReg**), as well as the non-regularized **NNLS** algorithm and **T2SPARC** (see references below).
+A number of non-parametric estimation algorithms were implemented, including the individual combinations of four penalty terms (i.e., **I** = identity matrix, **L1** = first-order Laplacian derivative, **L2** = second-order Laplacian derivative, and **InvT2** that takes into account the non-equidistant partition of the T2 grid) with four criteria to estimate the optimal regularization weight (i.e., Chi-square residual fitting (**X2**), **L-curve**, Generalized Cross-Validation (**GCV**), and a Bayesian regularized NNLS algorithm  (**BayesReg**)), as well as the non-regularized **NNLS** algorithm and **T2SPARC** (see references below).
 
-The current implementation is written in Python 2.7 (we plan to switch to Python 3.x.)
+**The current implementation is written in Python 2.7 (we plan to switch to Python 3.x.)**
 
 **We are using the MRI acquisition sequence described here:**
 
@@ -99,9 +99,12 @@ We included some optional pre- and post-processing steps using FSL (https://fsl.
 The software will save the estimated T2 distributions for each voxel (fsol_4D.nii.gz), the predicted signal (Est_Signal.nii.gz), as well as the following metrics derived from the spectrum.
 
 ```
-- MWF.nii.gz, IEWF.nii.gz, and CSFWF.nii.gz: intra-voxel fractions of the myelin water, intra- and extra-cellular water, and free-water compartments, respectively. 
-- T2_IE.nii.gz, T2_M.nii.gz: geometric mean T2s for the intra- and extra-cellular water and myelin water compartments.
-- TWC.nii.gz: Total water content (i.e., proton density map)
+- MWF.nii.gz: myelin water fraction
+- IEWF.nii.gz: intra- and extra-cellular water fraction
+- CSFWF.nii.gz: free-water fraction 
+- T2_M.nii.gz: geometric mean T2 of the myelin water.
+- T2_IE.nii.gz: geometric mean T2 of the intra- and extra-cellular water
+- TWC.nii.gz: Total water content, i.e., proton density
 - FA.nii.gz: estimated flip angle per voxel
 - reg_param.nii.gz: estimated regularization parameter per voxel
 ```
