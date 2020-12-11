@@ -1,4 +1,4 @@
-## Non-parametric T_{2} relaxometry methods for myelin water quantification
+## Non-parametric T<sub>2 relaxometry methods for myelin water quantification
 
 <img src="Graphical_Abstract.png" width="1082">
 
