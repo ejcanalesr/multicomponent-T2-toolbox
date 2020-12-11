@@ -98,7 +98,6 @@ We included some optional pre- and post-processing steps using FSL (https://fsl.
 
 The software will save the estimated T2 distributions for each voxel (fsol_4D.nii.gz), the predicted signal (Est_Signal.nii.gz), as well as the following metrics derived from the spectrum.
 
-```
 - MWF.nii.gz: myelin water fraction
 - IEWF.nii.gz: intra- and extra-cellular water fraction
 - CSFWF.nii.gz: free-water fraction 
@@ -107,7 +106,6 @@ The software will save the estimated T2 distributions for each voxel (fsol_4D.ni
 - TWC.nii.gz: Total water content, i.e., proton density
 - FA.nii.gz: estimated flip angle per voxel
 - reg_param.nii.gz: estimated regularization parameter per voxel
-```
 
 Moreover, we included another example script: **example_script_run_MET2_preproc_and_recon_using_ROIs.sh** to show how to estimate the mean T2 distributions over regions of interest (ROIs).
 
