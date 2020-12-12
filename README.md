@@ -111,8 +111,9 @@ The software will save the estimated T<sub>2</sub> distributions for each voxel 
 
 Moreover, we included another example script: **example_script_run_MET2_preproc_and_recon_using_ROIs.sh** to show how to estimate the mean T<sub>2</sub> distributions over regions of interest (ROIs).
 
+```
 ## References (depending on the used method, you should cite the following papers) ✒️
-> **Comparison of non-parametric T<sub>2</sub> relaxometry methods for myelin water quantification. Medical Image Analysis, under review, 2020.** 
+- **Comparison of non-parametric T<sub>2</sub> relaxometry methods for myelin water quantification. Medical Image Analysis, under review, 2020.** 
 Erick Jorge Canales-Rodríguez, Marco Pizzolato, Gian Franco Piredda, Tom Hilbert, Nicolas Kunz, Caroline Pot, Thomas Yu, Raymond Salvador, Edith Pomarol-Clotet, Tobias Kober, Jean-Philippe Thiran, Alessandro Daducci.
 
 - **T<sub>2</sub> spectrum imaging for myelin water quantification using bayesian regularized non-negative least squares. IEEE Transactions on Medical Imaging, under review, 2020** 
@@ -121,17 +122,18 @@ Erick Jorge Canales-Rodríguez, Marco Pizzolato, Thomas Yu, Gian Franco Piredda,
 - **Fast and high‐resolution myelin water imaging: Accelerating multi‐echo GRASE with CAIPIRINHA.**
 Gian Franco Piredda, Tom Hilbert, Erick Jorge Canales‐Rodríguez, Marco Pizzolato, Constantin von Deuster, Reto Meuli, Josef Pfeuffer, Alessandro Daducci, Jean‐Philippe Thiran, Tobias Kober. **Magnetic Resonance in Medicine**, 2020, https://doi.org/10.1002/mrm.28427
 
-> **Quantitative interpretation of NMR relaxation data** 
+- **Quantitative interpretation of NMR relaxation data** 
 Whittall, K.P., MacKay, A.L., 1989. **J. Magn. Reson**. doi:10.1016/0022-2364(89)90011-5
 
-> **In vivo visualization of myelin water in brain by magnetic resonance.**
+- **In vivo visualization of myelin water in brain by magnetic resonance.**
 Mackay, A., Whittall, K., Adler, J., Li, D., Paty, D., Graeb, D., 1994.  **Magn. Reson. Med.** 31, 673–677. doi:10.1002/mrm.1910310614
 
-> **Applications of stimulated echo correction to multicomponent T<sub>2</sub> analysis**
+- **Applications of stimulated echo correction to multicomponent T<sub>2</sub> analysis**
 Prasloski, T., Mädler, B., Xiang, Q.S., MacKay, A., Jones, C., 2012. **Magn. Reson. Med.** doi:10.1002/mrm.23157
 
-> **Multi-slice myelin water imaging for practical clinical applications at 3.0T**
+- **Multi-slice myelin water imaging for practical clinical applications at 3.0T**
 Guo, J., Ji, Q., Reddick, W.E., 2013. **Magn. Reson. Med.** doi:10.1002/mrm.24527
+```
 
 ## Copyright and license
 
