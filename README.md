@@ -1,8 +1,8 @@
-# Non-parametric T<sub>2</sub> relaxometry methods for myelin water quantification 📢
+## Non-parametric T<sub>2</sub> relaxometry methods for myelin water quantification
 
 <img src="Graphical_Abstract.png" width="1082">
 
-## **Implementation of the algorithms described here:** 🚀
+## **Implementation of the algorithms described here:** 📢
 
 > **Comparison of non-parametric T<sub>2</sub> relaxometry methods for myelin water quantification. Medical Image Analysis, under review, 2020.**
 Erick Jorge Canales-Rodríguez, Marco Pizzolato, Gian Franco Piredda, Tom Hilbert, Nicolas Kunz, Caroline Pot, Thomas Yu, Raymond Salvador, Edith Pomarol-Clotet, Tobias Kober, Jean-Philippe Thiran, Alessandro Daducci.
@@ -80,7 +80,7 @@ optional arguments:
 
 ```
 
-For more details see the example script: **example_script_run_MET2_preproc_and_recon.sh** ⚙️
+For more details see the example script: **example_script_run_MET2_preproc_and_recon.sh** 🎁
 We included some optional pre- and post-processing steps using FSL (https://fsl.fmrib.ox.ac.uk/fsl/fslwiki) and MRtrix3 (https://www.mrtrix.org/):
 
 ```
@@ -89,7 +89,7 @@ We included some optional pre- and post-processing steps using FSL (https://fsl.
 - Bias-field correction of the estimated proton density map, and segmentation to obtain WM, GM, and CSF probabilistic tissue-maps (i.e., fast, FSL)
 ```
 
-## Estimated maps 🎁
+## Estimated maps 🚀
 
 The software will save the estimated T<sub>2</sub> distributions for each voxel (fsol_4D.nii.gz), the predicted signal (Est_Signal.nii.gz), as well as the following metrics derived from the spectrum:
 
@@ -104,7 +104,7 @@ The software will save the estimated T<sub>2</sub> distributions for each voxel 
 - reg_param.nii.gz: Estimated regularization parameter per voxel
 ```
 
-Moreover, we included another example script: **example_script_run_MET2_preproc_and_recon_using_ROIs.sh** to show how to estimate the mean T<sub>2</sub> distributions over regions of interest (ROIs).
+Moreover, we included another example script: **example_script_run_MET2_preproc_and_recon_using_ROIs.sh** to show how to estimate the mean T<sub>2</sub> distributions over regions of interest (ROIs). 🎁
 
 ## References (depending on the used method, you should cite the following papers) ✒️
 - **Comparison of non-parametric T<sub>2</sub> relaxometry methods for myelin water quantification. Medical Image Analysis, under review, 2020.** 
