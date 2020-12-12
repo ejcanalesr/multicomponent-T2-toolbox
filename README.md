@@ -1,8 +1,8 @@
-## Non-parametric T<sub>2</sub> relaxometry methods for myelin water quantification
+# Non-parametric T<sub>2</sub> relaxometry methods for myelin water quantification 📢
 
 <img src="Graphical_Abstract.png" width="1082">
 
-**Implementation of the algorithms described here:** 🚀
+## **Implementation of the algorithms described here:** 🚀
 
 > **Comparison of non-parametric T<sub>2</sub> relaxometry methods for myelin water quantification. Medical Image Analysis, under review, 2020.**
 Erick Jorge Canales-Rodríguez, Marco Pizzolato, Gian Franco Piredda, Tom Hilbert, Nicolas Kunz, Caroline Pot, Thomas Yu, Raymond Salvador, Edith Pomarol-Clotet, Tobias Kober, Jean-Philippe Thiran, Alessandro Daducci.
@@ -12,7 +12,7 @@ Erick Jorge Canales-Rodríguez, Marco Pizzolato, Thomas Yu, Gian Franco Piredda,
 
 A number of non-parametric estimation algorithms were implemented, including the individual combinations of four penalty terms (i.e., **I** = identity matrix, **L<sub>1</sub>** = first-order Laplacian derivative, **L<sub>2</sub>** = second-order Laplacian derivative, and **InvT<sub>2</sub>** that takes into account the non-equidistant partition of the T<sub>2</sub> grid) with four criteria to estimate the optimal regularization weight (i.e., Chi-square residual fitting (**X<sup>2</sup>**), **L-curve**, Generalized Cross-Validation (**GCV**), and a Bayesian regularized NNLS algorithm  (**BayesReg**)), as well as the non-regularized **NNLS** algorithm and **T<sub>2</sub>SPARC** (see references below).
 
-**The current implementation is written in Python 2.7 (we plan to switch to Python 3.x.)**
+***The current implementation is written in Python 2.7 (we plan to switch to Python 3.x.)***
 
 ## Install dependencies 🔧
 ```
@@ -80,7 +80,7 @@ optional arguments:
 
 ```
 
-For more details see the example script: **example_script_run_MET2_preproc_and_recon.sh**.
+For more details see the example script: **example_script_run_MET2_preproc_and_recon.sh** ⚙️
 We included some optional pre- and post-processing steps using FSL (https://fsl.fmrib.ox.ac.uk/fsl/fslwiki) and MRtrix3 (https://www.mrtrix.org/):
 
 ```
@@ -128,7 +128,7 @@ Prasloski, T., Mädler, B., Xiang, Q.S., MacKay, A., Jones, C., 2012. **Magn. Re
 - **Multi-slice myelin water imaging for practical clinical applications at 3.0T**
 Guo, J., Ji, Q., Reddick, W.E., 2013. **Magn. Reson. Med.** doi:10.1002/mrm.24527
 
-## Copyright and license
+## Copyright and license 📄
 
 **GNU Lesser General Public License v2.1**
 
