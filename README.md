@@ -115,10 +115,10 @@ Moreover, we included another example script: **example_script_run_MET2_preproc_
 > **Comparison of non-parametric T<sub>2</sub> relaxometry methods for myelin water quantification. Medical Image Analysis, under review, 2020.** 
 Erick Jorge Canales-Rodríguez, Marco Pizzolato, Gian Franco Piredda, Tom Hilbert, Nicolas Kunz, Caroline Pot, Thomas Yu, Raymond Salvador, Edith Pomarol-Clotet, Tobias Kober, Jean-Philippe Thiran, Alessandro Daducci.
 
-**T<sub>2</sub> spectrum imaging for myelin water quantification using bayesian regularized non-negative least squares. IEEE Transactions on Medical Imaging, under review, 2020** 
+- **T<sub>2</sub> spectrum imaging for myelin water quantification using bayesian regularized non-negative least squares. IEEE Transactions on Medical Imaging, under review, 2020** 
 Erick Jorge Canales-Rodríguez, Marco Pizzolato, Thomas Yu, Gian Franco Piredda, Tom Hilbert, Tobias Kober, Jean-Philippe Thiran
 
-**Fast and high‐resolution myelin water imaging: Accelerating multi‐echo GRASE with CAIPIRINHA.**
+- **Fast and high‐resolution myelin water imaging: Accelerating multi‐echo GRASE with CAIPIRINHA.**
 Gian Franco Piredda, Tom Hilbert, Erick Jorge Canales‐Rodríguez, Marco Pizzolato, Constantin von Deuster, Reto Meuli, Josef Pfeuffer, Alessandro Daducci, Jean‐Philippe Thiran, Tobias Kober. **Magnetic Resonance in Medicine**, 2020, https://doi.org/10.1002/mrm.28427
 
 > **Quantitative interpretation of NMR relaxation data** 
