@@ -96,7 +96,7 @@ The software will save the estimated T<sub>2</sub> distributions for each voxel 
 ```
 - MWF.nii.gz: Myelin Water Fraction
 - IEWF.nii.gz: Intra- and Extra-cellular Water Fraction
-- CSFWF.nii.gz: Free-Water Fraction 
+- FWF.nii.gz: Free and quasi-free Water Fraction (i.e., T2 > 200ms) 
 - T2_M.nii.gz: Geometric mean T2 of the myelin water.
 - T2_IE.nii.gz: Geometric mean T2 of the intra- and extra-cellular water
 - TWC.nii.gz: Total Water Content, i.e., proton density
