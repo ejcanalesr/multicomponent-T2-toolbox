@@ -107,10 +107,10 @@ The software will save the estimated T<sub>2</sub> distributions for each voxel 
 Moreover, we included another example script: **example_script_run_MET2_preproc_and_recon_using_ROIs.sh** to show how to estimate the mean T<sub>2</sub> distributions over regions of interest (ROIs) 🎁
 
 ## References (depending on the used method, you should cite the following papers) ✒️
-- **Comparison of non-parametric T<sub>2</sub> relaxometry methods for myelin water quantification. Medical Image Analysis, under review, 2020.** 
+- **Comparison of non-parametric T<sub>2</sub> relaxometry methods for myelin water quantification. Medical Image Analysis, 2021.** 
 Erick Jorge Canales-Rodríguez, Marco Pizzolato, Gian Franco Piredda, Tom Hilbert, Nicolas Kunz, Caroline Pot, Thomas Yu, Raymond Salvador, Edith Pomarol-Clotet, Tobias Kober, Jean-Philippe Thiran, Alessandro Daducci.
 
-- **T<sub>2</sub> spectrum imaging for myelin water quantification using bayesian regularized non-negative least squares. Under review, 2020** 
+- **T<sub>2</sub> spectrum imaging for myelin water quantification using bayesian regularized non-negative least squares. Under review, 2021** 
 Erick Jorge Canales-Rodríguez, Marco Pizzolato, Thomas Yu, Gian Franco Piredda, Tom Hilbert, Tobias Kober, Jean-Philippe Thiran
 
 - **Fast and high‐resolution myelin water imaging: Accelerating multi‐echo GRASE with CAIPIRINHA.**
