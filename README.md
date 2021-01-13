@@ -4,10 +4,10 @@
 
 ## **Implementation of the algorithms described here:** 📢
 
-> **Comparison of non-parametric T<sub>2</sub> relaxometry methods for myelin water quantification. Medical Image Analysis, under review, 2020.**
+> **Comparison of non-parametric T<sub>2</sub> relaxometry methods for myelin water quantification. Medical Image Analysis, accepted, 2021.**
 Erick Jorge Canales-Rodríguez, Marco Pizzolato, Gian Franco Piredda, Tom Hilbert, Nicolas Kunz, Caroline Pot, Thomas Yu, Raymond Salvador, Edith Pomarol-Clotet, Tobias Kober, Jean-Philippe Thiran, Alessandro Daducci.
 
-> **T<sub>2</sub> spectrum imaging for myelin water quantification using bayesian regularized non-negative least squares. Under review, 2020**
+> **T<sub>2</sub> spectrum imaging for myelin water quantification using bayesian regularized non-negative least squares. Under review, 2021**
 Erick Jorge Canales-Rodríguez, Marco Pizzolato, Thomas Yu, Gian Franco Piredda, Tom Hilbert, Tobias Kober, Jean-Philippe Thiran
 
 A number of non-parametric estimation algorithms were implemented, including the individual combinations of four penalty terms (i.e., **I** = identity matrix, **L<sub>1</sub>** = first-order Laplacian derivative, **L<sub>2</sub>** = second-order Laplacian derivative, and **InvT<sub>2</sub>** that takes into account the non-equidistant partition of the T<sub>2</sub> grid) with four criteria to estimate the optimal regularization weight (i.e., Chi-square residual fitting (**X<sup>2</sup>**), **L-curve**, Generalized Cross-Validation (**GCV**), and a Bayesian Regularized NNLS algorithm  (**BayesReg**)), as well as the non-regularized **NNLS** and **T<sub>2</sub>SPARC** (see references below).
