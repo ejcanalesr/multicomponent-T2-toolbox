@@ -4,10 +4,10 @@
 
 ## **Implementation of the algorithms described here:** 📢
 
-> **Comparison of non-parametric T<sub>2</sub> relaxometry methods for myelin water quantification. Medical Image Analysis, accepted, 2021.**
+> **Comparison of non-parametric T<sub>2</sub> relaxometry methods for myelin water quantification. Medical Image Analysis**, 2021.
 Erick Jorge Canales-Rodríguez, Marco Pizzolato, Gian Franco Piredda, Tom Hilbert, Nicolas Kunz, Caroline Pot, Thomas Yu, Raymond Salvador, Edith Pomarol-Clotet, Tobias Kober, Jean-Philippe Thiran, Alessandro Daducci.
 
-> **T<sub>2</sub> spectrum imaging for myelin water quantification using bayesian regularized non-negative least squares. Under review, 2021**
+> **T<sub>2</sub> spectrum imaging for myelin water quantification using bayesian regularized non-negative least squares. Under review**, 2021.
 Erick Jorge Canales-Rodríguez, Marco Pizzolato, Thomas Yu, Gian Franco Piredda, Tom Hilbert, Tobias Kober, Jean-Philippe Thiran
 
 A number of non-parametric estimation algorithms were implemented, including the individual combinations of four penalty terms (i.e., **I** = identity matrix, **L<sub>1</sub>** = first-order Laplacian derivative, **L<sub>2</sub>** = second-order Laplacian derivative, and **InvT<sub>2</sub>** that takes into account the non-equidistant partition of the T<sub>2</sub> grid) with four criteria to estimate the optimal regularization weight (i.e., Chi-square residual fitting (**X<sup>2</sup>**), **L-curve**, Generalized Cross-Validation (**GCV**), and a Bayesian Regularized NNLS algorithm  (**BayesReg**)), as well as the non-regularized **NNLS** and **T<sub>2</sub>SPARC** (see references below).
@@ -107,26 +107,26 @@ The software will save the estimated T<sub>2</sub> distributions for each voxel 
 Moreover, we included another example script: **example_script_run_MET2_preproc_and_recon_using_ROIs.sh** to show how to estimate the mean T<sub>2</sub> distributions over regions of interest (ROIs) 🎁
 
 ## References (depending on the used method, you should cite the following papers) ✒️
-- **Comparison of non-parametric T<sub>2</sub> relaxometry methods for myelin water quantification. Medical Image Analysis, 2021.** 
+- **Comparison of non-parametric T<sub>2</sub> relaxometry methods for myelin water quantification. Medical Image Analysis**, 2021. 
 Erick Jorge Canales-Rodríguez, Marco Pizzolato, Gian Franco Piredda, Tom Hilbert, Nicolas Kunz, Caroline Pot, Thomas Yu, Raymond Salvador, Edith Pomarol-Clotet, Tobias Kober, Jean-Philippe Thiran, Alessandro Daducci.
 
-- **T<sub>2</sub> spectrum imaging for myelin water quantification using bayesian regularized non-negative least squares. Under review, 2021** 
-Erick Jorge Canales-Rodríguez, Marco Pizzolato, Thomas Yu, Gian Franco Piredda, Tom Hilbert, Tobias Kober, Jean-Philippe Thiran
+- **T<sub>2</sub> spectrum imaging for myelin water quantification using bayesian regularized non-negative least squares. Under review**, 2021. 
+Erick Jorge Canales-Rodríguez, Marco Pizzolato, Thomas Yu, Gian Franco Piredda, Tom Hilbert, Tobias Kober, Jean-Philippe Thiran.
 
-- **Fast and high‐resolution myelin water imaging: Accelerating multi‐echo GRASE with CAIPIRINHA.**
-Gian Franco Piredda, Tom Hilbert, Erick Jorge Canales‐Rodríguez, Marco Pizzolato, Constantin von Deuster, Reto Meuli, Josef Pfeuffer, Alessandro Daducci, Jean‐Philippe Thiran, Tobias Kober. **Magnetic Resonance in Medicine**, 2020, https://doi.org/10.1002/mrm.28427
+- **Fast and high‐resolution myelin water imaging: Accelerating multi‐echo GRASE with CAIPIRINHA**.
+Gian Franco Piredda, Tom Hilbert, Erick Jorge Canales‐Rodríguez, Marco Pizzolato, Constantin von Deuster, Reto Meuli, Josef Pfeuffer, Alessandro Daducci, Jean‐Philippe Thiran, Tobias Kober. **Magnetic Resonance in Medicine**, 2020, https://doi.org/10.1002/mrm.28427.
 
-- **Quantitative interpretation of NMR relaxation data** 
-Whittall, K.P., MacKay, A.L., 1989. **J. Magn. Reson**. doi:10.1016/0022-2364(89)90011-5
+- **Quantitative interpretation of NMR relaxation data**. 
+Whittall, K.P., MacKay, A.L., 1989. **J. Magn. Reson**. doi:10.1016/0022-2364(89)90011-5.
 
-- **In vivo visualization of myelin water in brain by magnetic resonance.**
-Mackay, A., Whittall, K., Adler, J., Li, D., Paty, D., Graeb, D., 1994.  **Magn. Reson. Med.** 31, 673–677. doi:10.1002/mrm.1910310614
+- **In vivo visualization of myelin water in brain by magnetic resonance**.
+Mackay, A., Whittall, K., Adler, J., Li, D., Paty, D., Graeb, D., 1994.  **Magn. Reson. Med.** 31, 673–677. doi:10.1002/mrm.1910310614.
 
-- **Applications of stimulated echo correction to multicomponent T<sub>2</sub> analysis**
-Prasloski, T., Mädler, B., Xiang, Q.S., MacKay, A., Jones, C., 2012. **Magn. Reson. Med.** doi:10.1002/mrm.23157
+- **Applications of stimulated echo correction to multicomponent T<sub>2</sub> analysis**.
+Prasloski, T., Mädler, B., Xiang, Q.S., MacKay, A., Jones, C., 2012. **Magn. Reson. Med.** doi:10.1002/mrm.23157.
 
-- **Multi-slice myelin water imaging for practical clinical applications at 3.0T**
-Guo, J., Ji, Q., Reddick, W.E., 2013. **Magn. Reson. Med.** doi:10.1002/mrm.24527
+- **Multi-slice myelin water imaging for practical clinical applications at 3.0T**.
+Guo, J., Ji, Q., Reddick, W.E., 2013. **Magn. Reson. Med.** doi:10.1002/mrm.24527.
 
 ## Copyright and license 📄
 
