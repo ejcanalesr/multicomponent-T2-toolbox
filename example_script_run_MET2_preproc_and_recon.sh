@@ -36,8 +36,7 @@ for subi in $list_of_subjects; do
        # Copy data to local folder (using FSL, otherwise use cp)
        echo "(1) Copy data to local folder"
        fslmaths $Path_to_Data      Recon_folder/$subi/Data.nii.gz
-       fslmaths $Path/$subi/$Mask  Recon_folder/$subi/mask.nii.gz
-
+       
        # Remove Gibbs Ringing Artifacts using MRtrix3 (this step is optional)
        echo "(2) Remove Gibbs Ringing Artifacts, please wait..."
        mrdegibbs Recon_folder/$subi/Data.nii.gz Recon_folder/$subi/Data.nii.gz -force
