@@ -247,7 +247,8 @@ def motor_recon_met2(TE_array, path_to_data, path_to_mask, path_to_save_data, TR
     # Define regularization vectors for the L-curve method
     num_l_laplac   = 50
     lambda_reg     = np.zeros((num_l_laplac))
-    lambda_reg[1:] = np.logspace(math.log10(1e-8), math.log10(100.0), num=num_l_laplac-1, endpoint=True, base=10.0)
+    # lambda_reg[1:] = np.logspace(math.log10(1e-8), math.log10(100.0), num=num_l_laplac-1, endpoint=True, base=10.0)
+    lambda_reg[1:] = np.logspace(math.log10(1e-8), math.log10(10.0), num=num_l_laplac-1, endpoint=True, base=10.0)
 
     # --------------------------------------------------------------------------
     if reg_matrix == 'I':
