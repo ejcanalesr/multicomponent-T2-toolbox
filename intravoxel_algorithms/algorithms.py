@@ -33,7 +33,8 @@ import inspect
 import sys
 import os
 sys.path.insert(1, os.path.dirname(inspect.getfile(scipy.optimize)))
-import _nnls
+#import _nnls
+from scipy.optimize import nnls as _nnls
 
 import numba as nb
 
@@ -72,7 +73,8 @@ def nnls(A, b):
     zz    = np.zeros((m,), dtype=np.double)
     index = np.zeros((n,), dtype=int)
 
-    x, rnorm, mode = _nnls.nnls(A, m, n, b, w, zz, index, maxiter)
+    #x, rnorm, mode = _nnls.nnls(A, m, n, b, w, zz, index, maxiter)
+    x, rnorm, mode = _nnls(A, m, n, b, w, zz, index, maxiter)
 
     #if mode != 1:
     #    raise RuntimeError("too many iterations")

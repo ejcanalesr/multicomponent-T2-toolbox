@@ -175,10 +175,10 @@ def motor_recon_met2_ROIs(TE_array, path_to_data, path_to_mask, path_to_ROIs, pa
     print(' ')
     print(' Number of ROIs: ', nROIs)
     print(' List of labels: ')
-    print nROIs_values
+    print(nROIs_values)
     print (' ')
 
-    for c in xrange(nt):
+    for c in range(nt):
         data[:,:,:,c] = np.squeeze(data[:,:,:,c]) * mask
     #end
     ROIs      = ROIs * mask
@@ -272,8 +272,8 @@ def motor_recon_met2_ROIs(TE_array, path_to_data, path_to_mask, path_to_ROIs, pa
     #___________________________________________________________________________
 
     if denoise == 'TV' :
-        print 'Step #1: Denoising using Total Variation:'
-        for voxelt in progressbar.progressbar(xrange(nt), redirect_stdout=True):
+        print('Step #1: Denoising using Total Variation:')
+        for voxelt in progressbar.progressbar.ProgressBar(range(nt), redirect_stdout=True):
             print(voxelt+1, ' volumes processed')
             data_vol  = np.squeeze(data[:,:,:,voxelt])
             sigma_est = np.mean(estimate_sigma(data_vol, multichannel=False))
@@ -283,15 +283,15 @@ def motor_recon_met2_ROIs(TE_array, path_to_data, path_to_mask, path_to_ROIs, pa
     elif denoise == 'NESMA' :
         data_den  = np.zeros_like(data)
         path_size = [6,6,6] # real-size = 2*path_size + 1
-        print 'Step #1: Denoising using the NESMA filter:'
-        for voxelx in progressbar.progressbar(xrange(nx), redirect_stdout=True):
+        print('Step #1: Denoising using the NESMA filter:')
+        for voxelx in progressbar.progressbar.ProgressBar(range(nx), redirect_stdout=True):
             print(voxelx+1, ' slices processed')
             min_x = np.max([voxelx - path_size[0], 0])
             max_x = np.min([voxelx + path_size[0], nx])
-            for voxely in xrange(ny):
+            for voxely in range(ny):
                 min_y = np.max([voxely - path_size[1], 0])
                 max_y = np.min([voxely + path_size[1], ny])
-                for voxelz in xrange(nz):
+                for voxelz in range(nz):
                     if mask[voxelx, voxely,voxelz] == 1:
                         min_z = np.max([voxelz - path_size[2], 0])
                         max_z = np.min([voxelz + path_size[2], nz])
@@ -311,12 +311,12 @@ def motor_recon_met2_ROIs(TE_array, path_to_data, path_to_mask, path_to_ROIs, pa
         del data_den
     #end if
 
-    print 'Step #2: Estimation of flip angles:'
+    print('Step #2: Estimation of flip angles:')
     if FA_smooth == 'yes':
         # Smoothing the data for a robust B1 map estimation
         data_smooth = np.zeros((nx,ny,nz,nt))
         sig_g = 2.0
-        for c in xrange(nt):
+        for c in range(nt):
             data_smooth[:,:,:,c] = filt.gaussian_filter(np.squeeze(data[:,:,:,c]), sig_g, 0)
         #end for
     else:
@@ -324,7 +324,7 @@ def motor_recon_met2_ROIs(TE_array, path_to_data, path_to_mask, path_to_ROIs, pa
     #end if
 
     mean_T2_dist = 0
-    for voxelz in progressbar.progressbar(xrange(nz), redirect_stdout=True):
+    for voxelz in progressbar.progressbar.ProgressBar(range(nz), redirect_stdout=True):
         #print('Estimation of flip angles: slice', voxelz+1)
         print(voxelz+1, ' slices processed')
         # Parallelization by rows: this is more efficient for computing a single or a few slices
@@ -333,7 +333,7 @@ def motor_recon_met2_ROIs(TE_array, path_to_data, path_to_mask, path_to_ROIs, pa
         #FA_par = Parallel(n_jobs=num_cores)(delayed(fitting_slice_FA)(mask_slice[:, voxely], data_slice[:,voxely,:], nx, Dic_3D, alpha_values) for voxely in tqdm(range(ny)))
         if FA_method == 'brute-force':
             FA_par = Parallel(n_jobs=num_cores, backend='multiprocessing')(delayed(fitting_slice_FA_brute_force)(mask_slice[:, voxely], data_slice[:,voxely,:], nx, Dic_3D, alpha_values) for voxely in range(ny))
-            for voxely in xrange(ny):
+            for voxely in range(ny):
                 FA[:,voxely,voxelz]       = FA_par[voxely][0]
                 FA_index[:,voxely,voxelz] = FA_par[voxely][1]
                 Ktotal[:, voxely,voxelz]  = FA_par[voxely][2]
@@ -341,7 +341,7 @@ def motor_recon_met2_ROIs(TE_array, path_to_data, path_to_mask, path_to_ROIs, pa
             #end for voxely
         elif FA_method == 'spline':
             FA_par = Parallel(n_jobs=num_cores, backend='multiprocessing')(delayed(fitting_slice_FA_spline_method)(Dic_3D_LR, Dic_3D, data_slice[:,voxely,:], mask_slice[:, voxely], alpha_values_spline, nx, alpha_values) for voxely in range(ny))
-            for voxely in xrange(ny):
+            for voxely in range(ny):
                 FA[:,voxely,voxelz]       = FA_par[voxely][0]
                 FA_index[:,voxely,voxelz] = FA_par[voxely][1]
                 Ktotal[:, voxely,voxelz]  = FA_par[voxely][2]
@@ -357,9 +357,9 @@ def motor_recon_met2_ROIs(TE_array, path_to_data, path_to_mask, path_to_ROIs, pa
     total_signal = 0
     total_Kernel = 0
     nv           = 0
-    for voxelx in xrange(nx):
-        for voxely in xrange(ny):
-            for voxelz in xrange(nz):
+    for voxelx in range(nx):
+        for voxely in range(ny):
+            for voxelz in range(nz):
                 if mask[voxelx, voxely,voxelz] == 1:
                     total_signal = total_signal + data[voxelx,voxely,voxelz, :]
                     ind_xyz      = np.int(FA_index[voxelx,voxely,voxelz])
@@ -404,15 +404,15 @@ def motor_recon_met2_ROIs(TE_array, path_to_data, path_to_mask, path_to_ROIs, pa
 
     # --------------------------------------------------------------------------
     logT2 = np.log(T2s)
-    print 'Step #3: Estimation of ROI-based T2 spectrum:'
-    for nROI_i in progressbar.progressbar(xrange(nROIs), redirect_stdout=True):
+    print('Step #3: Estimation of ROI-based T2 spectrum:')
+    for nROI_i in progressbar.progressbar.ProgressBar(range(nROIs), redirect_stdout=True):
         print(' ROIs processed:', nROI_i + 1)
         total_signal = 0
         total_Kernel = 0
         nv           = 0
-        for voxelx in xrange(nx):
-            for voxely in xrange(ny):
-                for voxelz in xrange(nz):
+        for voxelx in range(nx):
+            for voxely in range(ny):
+                for voxelz in range(nz):
                     if  ROIs[voxelx, voxely,voxelz] == nROIs_values[nROI_i]:
                         total_signal = total_signal + data[voxelx,voxely,voxelz, :]
                         ind_xyz      = np.int(FA_index[voxelx,voxely,voxelz])
@@ -482,7 +482,7 @@ def motor_recon_met2_ROIs(TE_array, path_to_data, path_to_mask, path_to_ROIs, pa
                    ]
 
         table_tabulated  = tabulate(table, headers=headers)
-        print table_tabulated
+        print(table_tabulated)
 
         f2 = open(path_to_save_ROI + 'table_values.txt', 'w')
         f2.write(table_tabulated)

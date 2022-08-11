@@ -370,7 +370,7 @@ Laplac2 = create_Laplacian_matrix(Npc, order2)
 
 # -----------------------------------------------------------------------------#
 for iter in range(0, N_voxels):
-    print ('Voxel: ', iter, ' of ' , N_voxels)
+    print('Voxel: ', iter, ' of ' , N_voxels)
     MWF      = vMWF[iter]
     T2m      = vT2m[iter]
     T2ie     = vT2ie[iter]
@@ -621,7 +621,7 @@ for iter in range(0, N_voxels):
     Dist_w_GCV_L2[iter]   = dis_w_error_sol
 # -----------------------------------------------------------------------------#
 #end for
-print "Done"
+print("Done")
 
 # -----------------------------------------------------------------------------#
 #  -------------------------- Evaluation --------------------------------------#
@@ -728,7 +728,7 @@ table    = [
            ]
 
 table_tabulated = tabulate(table, headers=headers)
-print table_tabulated
+print(table_tabulated)
 
 f1 = open(path + 'table_errors.txt', 'w')
 f1.write(table_tabulated)
@@ -736,9 +736,9 @@ f1.close()
 
 np.savetxt(path + 'table_errors.csv', table, delimiter=",", fmt='%s')
 
-print '  '
-print '------------------------------------------------------------------------'
-print '  '
+print('  ')
+print('------------------------------------------------------------------------')
+print('  ')
 
 # Regularization values
 
@@ -756,7 +756,7 @@ table   =  [
            [ '10. GCV-L2            ',  mean_lambda_GCV_L2,            std_lambda_GCV_L2            ]
            ]
 table_tabulated  = tabulate(table, headers=headers)
-print table_tabulated
+print(table_tabulated)
 
 f2 = open(path + 'table_regularization.txt', 'w')
 f2.write(table_tabulated)

@@ -38,7 +38,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 matplotlib.rcParams['text.usetex']=True
-matplotlib.rcParams['text.latex.unicode']=True
+#matplotlib.rcParams['text.latex.unicode']=True
 
 # import pdb
 
@@ -177,7 +177,7 @@ def motor_recon_met2(TE_array, path_to_data, path_to_mask, path_to_save_data, TR
     print(data.shape)
     print('--------------------------------------')
 
-    for c in xrange(nt):
+    for c in range(nt):
         data[:,:,:,c] = np.squeeze(data[:,:,:,c]) * mask
     #end
 
@@ -268,7 +268,7 @@ def motor_recon_met2(TE_array, path_to_data, path_to_mask, path_to_save_data, TR
         deltaT2[0] = deltaT2[1]
         Laplac  = np.diag(1./deltaT2)
     else:
-        print ('Error: Wrong reg_matrix option!')
+        print('Error: Wrong reg_matrix option!')
         sys.exit()
     # end if
 
@@ -281,9 +281,9 @@ def motor_recon_met2(TE_array, path_to_data, path_to_mask, path_to_save_data, TR
     number_of_cores = multiprocessing.cpu_count()
     if num_cores == -1:
         num_cores = number_of_cores
-        print ('Using all CPUs: ', number_of_cores)
+        print('Using all CPUs: ', number_of_cores)
     else:
-        print ('Using ', num_cores, ' CPUs from ', number_of_cores)
+        print('Using ', num_cores, ' CPUs from ', number_of_cores)
     #end if
 
     #_______________________________________________________________________________
@@ -291,8 +291,9 @@ def motor_recon_met2(TE_array, path_to_data, path_to_mask, path_to_save_data, TR
     #_______________________________________________________________________________
 
     if denoise == 'TV' :
-        print 'Step #1: Denoising using Total Variation:'
-        for voxelt in progressbar.progressbar(xrange(nt), redirect_stdout=True):
+        print('Step #1: Denoising using Total Variation:')
+        from IPython import embed; embed()
+        for voxelt in progressbar.progressbar.ProgressBar(range(nt), redirect_stdout=True):
             print(voxelt+1, ' volumes processed')
             data_vol  = np.squeeze(data[:,:,:,voxelt])
             sigma_est = np.mean(estimate_sigma(data_vol, multichannel=False))
@@ -304,15 +305,15 @@ def motor_recon_met2(TE_array, path_to_data, path_to_mask, path_to_save_data, TR
     elif denoise == 'NESMA' :
         data_den  = np.zeros_like(data)
         path_size = [6,6,6] # real-size = 2*path_size + 1
-        print 'Step #1: Denoising using the NESMA filter:'
-        for voxelx in progressbar.progressbar(xrange(nx), redirect_stdout=True):
+        print('Step #1: Denoising using the NESMA filter:')
+        for voxelx in progressbar.progressbar.ProgressBar(range(nx), redirect_stdout=True):
             print(voxelx+1, ' slices processed')
             min_x = np.max([voxelx - path_size[0], 0])
             max_x = np.min([voxelx + path_size[0], nx])
-            for voxely in xrange(ny):
+            for voxely in range(ny):
                 min_y = np.max([voxely - path_size[1], 0])
                 max_y = np.min([voxely + path_size[1], ny])
-                for voxelz in xrange(nz):
+                for voxelz in range(nz):
                     if mask[voxelx, voxely,voxelz] == 1:
                         min_z = np.max([voxelz - path_size[2], 0])
                         max_z = np.min([voxelz + path_size[2], nz])
@@ -332,12 +333,12 @@ def motor_recon_met2(TE_array, path_to_data, path_to_mask, path_to_save_data, TR
         del data_den
     #end if
 
-    print 'Step #2: Estimation of flip angles:'
+    print('Step #2: Estimation of flip angles:')
     if FA_smooth == 'yes':
         # Smoothing the data for a robust B1 map estimation
         data_smooth = np.zeros((nx,ny,nz,nt))
         sig_g = 2.0
-        for c in xrange(nt):
+        for c in range(nt):
             data_smooth[:,:,:,c] = filt.gaussian_filter(np.squeeze(data[:,:,:,c]), sig_g, 0)
         #end for
     else:
@@ -345,7 +346,7 @@ def motor_recon_met2(TE_array, path_to_data, path_to_mask, path_to_save_data, TR
     #end if
 
     mean_T2_dist = 0
-    for voxelz in progressbar.progressbar(xrange(nz), redirect_stdout=True):
+    for voxelz in progressbar.progressbar.ProgressBar(range(nz), redirect_stdout=True):
         #print('Estimation of flip angles: slice', voxelz+1)
         print(voxelz+1, ' slices processed')
         # Parallelization by rows: this is more efficient for computing a single or a few slices
@@ -354,7 +355,7 @@ def motor_recon_met2(TE_array, path_to_data, path_to_mask, path_to_save_data, TR
         #FA_par = Parallel(n_jobs=num_cores)(delayed(fitting_slice_FA)(mask_slice[:, voxely], data_slice[:,voxely,:], nx, Dic_3D, alpha_values) for voxely in tqdm(range(ny)))
         if FA_method == 'brute-force':
             FA_par = Parallel(n_jobs=num_cores, backend='multiprocessing')(delayed(fitting_slice_FA_brute_force)(mask_slice[:, voxely], data_slice[:,voxely,:], nx, Dic_3D, alpha_values) for voxely in range(ny))
-            for voxely in xrange(ny):
+            for voxely in range(ny):
                 FA[:,voxely,voxelz]       = FA_par[voxely][0]
                 FA_index[:,voxely,voxelz] = FA_par[voxely][1]
                 Ktotal[:, voxely,voxelz]  = FA_par[voxely][2]
@@ -362,7 +363,7 @@ def motor_recon_met2(TE_array, path_to_data, path_to_mask, path_to_save_data, TR
             #end for voxely
         elif FA_method == 'spline':
             FA_par = Parallel(n_jobs=num_cores, backend='multiprocessing')(delayed(fitting_slice_FA_spline_method)(Dic_3D_LR, Dic_3D, data_slice[:,voxely,:], mask_slice[:, voxely], alpha_values_spline, nx, alpha_values) for voxely in range(ny))
-            for voxely in xrange(ny):
+            for voxely in range(ny):
                 FA[:,voxely,voxelz]       = FA_par[voxely][0]
                 FA_index[:,voxely,voxelz] = FA_par[voxely][1]
                 Ktotal[:, voxely,voxelz]  = FA_par[voxely][2]
@@ -378,9 +379,9 @@ def motor_recon_met2(TE_array, path_to_data, path_to_mask, path_to_save_data, TR
     total_signal = 0
     total_Kernel = 0
     nv           = 0
-    for voxelx in xrange(nx):
-        for voxely in xrange(ny):
-            for voxelz in xrange(nz):
+    for voxelx in range(nx):
+        for voxely in range(ny):
+            for voxelz in range(nz):
                 if mask[voxelx, voxely,voxelz] == 1:
                     total_signal = total_signal + data[voxelx,voxely,voxelz, :]
                     ind_xyz      = np.int(FA_index[voxelx,voxely,voxelz])
@@ -423,8 +424,8 @@ def motor_recon_met2(TE_array, path_to_data, path_to_mask, path_to_save_data, TR
     plt.close('all')
     # --------------------------------------------------------------------------
 
-    print 'Step #3: Estimation of T2 spectra:'
-    for voxelz in progressbar.progressbar(xrange(nz), redirect_stdout=True):
+    print('Step #3: Estimation of T2 spectra:')
+    for voxelz in progressbar.progressbar.ProgressBar(range(nz), redirect_stdout=True):
         print(voxelz+1, ' slices processed')
         # Parallelization by rows: this is more efficient for computing a single or a few slices
         mask_slice = mask[:,:,voxelz]
@@ -432,18 +433,18 @@ def motor_recon_met2(TE_array, path_to_data, path_to_mask, path_to_save_data, TR
         FA_index_slice = FA_index[:,:,voxelz]
         #T2_par = Parallel(n_jobs=num_cores, backend='multiprocessing')(delayed(fitting_slice_T2)(mask_slice[:, voxely], data_slice[:,voxely,:], FA_index_slice[:, voxely], nx, Dic_3D, lambda_reg, alpha_values, T2s.shape[0], nEchoes, num_l_laplac, N_alphas, reg_method, Laplac1, Laplac2, Is, Laplac_mod, mean_T2_dist, Laplac2_cp_var, W_inv_deltaT2) for voxely in range(ny))
         T2_par = Parallel(n_jobs=num_cores, backend='multiprocessing')(delayed(fitting_slice_T2)(mask_slice[:, voxely], data_slice[:,voxely,:], FA_index_slice[:, voxely], nx, Dic_3D, lambda_reg, T2s.shape[0], nEchoes, reg_method, Laplac, mean_T2_dist) for voxely in range(ny))
-        for voxely in xrange(ny):
+        for voxely in range(ny):
             f_sol_4D[:,voxely,voxelz,:] = T2_par[voxely][0]
             s_sol_4D[:,voxely,voxelz,:] = T2_par[voxely][1]
             reg_param[:,voxely,voxelz]  = T2_par[voxely][2]
         #end voxely
     #end voxelx
 
-    print ('Step #4: Estimation of quantitative metrics')
+    print('Step #4: Estimation of quantitative metrics')
     logT2 = np.log(T2s)
-    for voxelx in xrange(nx):
-        for voxely in xrange(ny):
-            for voxelz in xrange(nz):
+    for voxelx in range(nx):
+        for voxely in range(ny):
+            for voxelz in range(nz):
                 if mask[voxelx, voxely, voxelz] > 0.0:
                     M     = data[voxelx, voxely, voxelz, :]
                     x_sol = f_sol_4D[voxelx, voxely, voxelz,:]
@@ -501,5 +502,5 @@ def motor_recon_met2(TE_array, path_to_data, path_to_mask, path_to_save_data, TR
     outImg = nib.Nifti1Image(reg_param, img.affine)
     nib.save(outImg, path_to_save_data + 'reg_param.nii.gz')
     #end if
-    print ('Done!')
+    print('Done!')
 #end main function

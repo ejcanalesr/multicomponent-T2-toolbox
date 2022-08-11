@@ -4,7 +4,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 matplotlib.rcParams['text.usetex']=True
-matplotlib.rcParams['text.latex.unicode']=True
+#matplotlib.rcParams['text.latex.unicode']=True
 
 from mpl_toolkits.axes_grid1.inset_locator import zoomed_inset_axes, inset_axes, mark_inset
 from mpl_toolkits.axes_grid1 import make_axes_locatable
