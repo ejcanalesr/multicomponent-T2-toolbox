@@ -72,8 +72,9 @@ def nnls(A, b):
     w     = np.zeros((n,), dtype=np.double)
     zz    = np.zeros((m,), dtype=np.double)
     index = np.zeros((n,), dtype=int)
-
-    x, rnorm, mode = _nnls.nnls(A, m, n, b, w, zz, index, maxiter)
+    
+    #x, rnorm, mode = _nnls.nnls(A, m, n, b, w, zz, index, maxiter)
+    x, rnorm, mode = __nnls.nnls(A, m, n, b, w, zz, index, maxiter)
 
     #if mode != 1:
     #    raise RuntimeError("too many iterations")
