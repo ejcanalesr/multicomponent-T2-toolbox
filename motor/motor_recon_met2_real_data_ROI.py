@@ -273,7 +273,7 @@ def motor_recon_met2_ROIs(TE_array, path_to_data, path_to_mask, path_to_ROIs, pa
 
     if denoise == 'TV' :
         print('Step #1: Denoising using Total Variation:')
-        for voxelt in progressbar.progressbar.ProgressBar(range(nt), redirect_stdout=True):
+        for voxelt in progressbar.progressbar(range(nt), redirect_stdout=True):
             print(voxelt+1, ' volumes processed')
             data_vol  = np.squeeze(data[:,:,:,voxelt])
             sigma_est = np.mean(estimate_sigma(data_vol, multichannel=False))
@@ -284,7 +284,7 @@ def motor_recon_met2_ROIs(TE_array, path_to_data, path_to_mask, path_to_ROIs, pa
         data_den  = np.zeros_like(data)
         path_size = [6,6,6] # real-size = 2*path_size + 1
         print('Step #1: Denoising using the NESMA filter:')
-        for voxelx in progressbar.progressbar.ProgressBar(range(nx), redirect_stdout=True):
+        for voxelx in progressbar.progressbar(range(nx), redirect_stdout=True):
             print(voxelx+1, ' slices processed')
             min_x = np.max([voxelx - path_size[0], 0])
             max_x = np.min([voxelx + path_size[0], nx])
@@ -324,7 +324,7 @@ def motor_recon_met2_ROIs(TE_array, path_to_data, path_to_mask, path_to_ROIs, pa
     #end if
 
     mean_T2_dist = 0
-    for voxelz in progressbar.progressbar.ProgressBar(range(nz), redirect_stdout=True):
+    for voxelz in progressbar.progressbar(range(nz), redirect_stdout=True):
         #print('Estimation of flip angles: slice', voxelz+1)
         print(voxelz+1, ' slices processed')
         # Parallelization by rows: this is more efficient for computing a single or a few slices
@@ -405,7 +405,7 @@ def motor_recon_met2_ROIs(TE_array, path_to_data, path_to_mask, path_to_ROIs, pa
     # --------------------------------------------------------------------------
     logT2 = np.log(T2s)
     print('Step #3: Estimation of ROI-based T2 spectrum:')
-    for nROI_i in progressbar.progressbar.ProgressBar(range(nROIs), redirect_stdout=True):
+    for nROI_i in progressbar.progressbar(range(nROIs), redirect_stdout=True):
         print(' ROIs processed:', nROI_i + 1)
         total_signal = 0
         total_Kernel = 0
