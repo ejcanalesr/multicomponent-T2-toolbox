@@ -107,12 +107,12 @@ table   =  [
 
 table_tabulated  = tabulate(table, headers=headers)
 print ('-------------------------------')
-print table_tabulated
+print(table_tabulated)
 
 try:
     os.mkdir(path_to_save_data)
 except:
-    print ('Warning: this folder already exists. Results will be overwritten')
+    print('Warning: this folder already exists. Results will be overwritten')
 #end try
 
 # Define experimental parameters
