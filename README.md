@@ -1,18 +1,16 @@
-## Non-parametric T<sub>2</sub> relaxometry methods for myelin water quantification (Version 0.2)
+## Non-parametric T<sub>2</sub> relaxometry methods for myelin water quantification (Version 0.3)
 
 <img src="Graphical_Abstract.png" width="1082">
 
 ## **Implementation of the algorithms described here:** 📢
 
-> **Comparison of non-parametric T<sub>2</sub> relaxometry methods for myelin water quantification. Medical Image Analysis**, 2021.
-Erick Jorge Canales-Rodríguez, Marco Pizzolato, Gian Franco Piredda, Tom Hilbert, Nicolas Kunz, Caroline Pot, Thomas Yu, Raymond Salvador, Edith Pomarol-Clotet, Tobias Kober, Jean-Philippe Thiran, Alessandro Daducci.
+> **Comparison of non-parametric T<sub>2</sub> relaxometry methods for myelin water quantification**. Medical Image Analysis, Volume 69, 2021, 101959, ISSN 1361-8415, https://doi.org/10.1016/j.media.2021.101959. Erick Jorge Canales-Rodríguez, Marco Pizzolato, Gian Franco Piredda, Tom Hilbert, Nicolas Kunz, Caroline Pot, Thomas Yu, Raymond Salvador, Edith Pomarol-Clotet, Tobias Kober, Jean-Philippe Thiran, Alessandro Daducci.
 
-> **Revisiting the T<sub>2</sub> Spectrum Imaging Inverse Problem: Bayesian Regularized Non-Negative Least Squares. Under review**, 2021.
-Erick Jorge Canales-Rodríguez, Marco Pizzolato, Thomas Yu, Gian Franco Piredda, Tom Hilbert, Tobias Kober, Jean-Philippe Thiran
+> **Revisiting the T<sub>2</sub> Spectrum Imaging Inverse Problem: Bayesian Regularized Non-Negative Least Squares**. Neuroimage. 2021 Dec 1;244:118582. doi: 10.1016/j.neuroimage.2021.118582. PMID: 34536538. Erick Jorge Canales-Rodríguez, Marco Pizzolato, Thomas Yu, Gian Franco Piredda, Tom Hilbert, Tobias Kober, Jean-Philippe Thiran
 
 A number of non-parametric estimation algorithms were implemented, including the individual combinations of four penalty terms (i.e., **I** = identity matrix, **L<sub>1</sub>** = first-order Laplacian derivative, **L<sub>2</sub>** = second-order Laplacian derivative, and **InvT<sub>2</sub>** that takes into account the non-equidistant partition of the T<sub>2</sub> grid) with four criteria to estimate the optimal regularization weight (i.e., Chi-square residual fitting (**X<sup>2</sup>**), **L-curve**, Generalized Cross-Validation (**GCV**), and a Bayesian Regularized NNLS algorithm  (**BayesReg**)), as well as the non-regularized **NNLS** and **T<sub>2</sub>SPARC** (see references below).
 
-***The current implementation is written in Python 2.7 (we plan to switch to Python 3.x.)***
+***The current implementation is written in Python 3***
 
 ## Install dependencies 🔧
 ```
@@ -107,11 +105,11 @@ The software will save the estimated T<sub>2</sub> distributions for each voxel 
 Moreover, we included another example script: **example_script_run_MET2_preproc_and_recon_using_ROIs.sh** to show how to estimate the mean T<sub>2</sub> distributions over regions of interest (ROIs) 🎁
 
 ## References (depending on the used method, you should cite the following papers) ✒️
-- **Comparison of non-parametric T<sub>2</sub> relaxometry methods for myelin water quantification. Medical Image Analysis**, 2021. 
-Erick Jorge Canales-Rodríguez, Marco Pizzolato, Gian Franco Piredda, Tom Hilbert, Nicolas Kunz, Caroline Pot, Thomas Yu, Raymond Salvador, Edith Pomarol-Clotet, Tobias Kober, Jean-Philippe Thiran, Alessandro Daducci.
+- **Comparison of non-parametric T<sub>2</sub> relaxometry methods for myelin water quantification**. 
+Erick Jorge Canales-Rodríguez, Marco Pizzolato, Gian Franco Piredda, Tom Hilbert, Nicolas Kunz, Caroline Pot, Thomas Yu, Raymond Salvador, Edith Pomarol-Clotet, Tobias Kober, Jean-Philippe Thiran, Alessandro Daducci. **Medical Image Analysis**, Volume 69, 2021, 101959, ISSN 1361-8415, https://doi.org/10.1016/j.media.2021.101959.
 
-- **Revisiting the T<sub>2</sub> Spectrum Imaging Inverse Problem: Bayesian Regularized Non-Negative Least Squares. Under review**, 2021. 
-Erick Jorge Canales-Rodríguez, Marco Pizzolato, Thomas Yu, Gian Franco Piredda, Tom Hilbert, Tobias Kober, Jean-Philippe Thiran.
+- **Revisiting the T<sub>2</sub> Spectrum Imaging Inverse Problem: Bayesian Regularized Non-Negative Least Squares**. 
+Erick Jorge Canales-Rodríguez, Marco Pizzolato, Thomas Yu, Gian Franco Piredda, Tom Hilbert, Tobias Kober, Jean-Philippe Thiran. **Neuroimage**. 2021 Dec 1;244:118582. doi: 10.1016/j.neuroimage.2021.118582. PMID: 34536538.
 
 - **Fast and high‐resolution myelin water imaging: Accelerating multi‐echo GRASE with CAIPIRINHA**.
 Gian Franco Piredda, Tom Hilbert, Erick Jorge Canales‐Rodríguez, Marco Pizzolato, Constantin von Deuster, Reto Meuli, Josef Pfeuffer, Alessandro Daducci, Jean‐Philippe Thiran, Tobias Kober. **Magnetic Resonance in Medicine**, 2020, https://doi.org/10.1002/mrm.28427.
