@@ -169,9 +169,9 @@ def select_corner(x,y):
     cte = 7. * np.pi / 8.
     angmin = None
     c = [x[-1], y[-1]]
-    for k in xrange(0, n - 2):
+    for k in range(0, n - 2):
         b = [x[k], y[k]]
-        for j in xrange(k + 1, n - 1):
+        for j in range(k + 1, n - 1):
             a = [x[j], y[j]]
             ab = dist(a, b)
             ac = dist(a, c)
