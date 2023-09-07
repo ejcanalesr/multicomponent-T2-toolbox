@@ -26,7 +26,7 @@ def plot_real_data_slices(path_to_save_data, path_to_data, Slice, method):
     data_type = 'invivo'
     #_______________________________________________________________________________
     params = {
-    'text.latex.preamble': ['\\usepackage{gensymb}'],
+    'text.latex.preamble': r'\usepackage{gensymb}',
     'image.origin': 'lower',
     'image.interpolation': 'nearest',
     'image.cmap': 'gray',
@@ -50,35 +50,35 @@ def plot_real_data_slices(path_to_save_data, path_to_data, Slice, method):
 
     # load data
     img  = nib.load(path_to_data)
-    data = img.get_data()
+    data = img.get_fdata()
     data = data.astype(np.float64, copy=False)
 
     img  = nib.load(path_to_save_data + 'MWF.nii.gz')
-    fM = img.get_data()
+    fM = img.get_fdata()
     fM = fM.astype(np.float64, copy=False)
 
     img  = nib.load(path_to_save_data + 'IEWF.nii.gz')
-    fIE = img.get_data()
+    fIE = img.get_fdata()
     fIE = fIE.astype(np.float64, copy=False)
 
     img  = nib.load(path_to_save_data + 'FWF.nii.gz')
-    fCSF = img.get_data()
+    fCSF = img.get_fdata()
     fCSF = fCSF.astype(np.float64, copy=False)
 
     img  = nib.load(path_to_save_data + 'T2_M.nii.gz')
-    T2m = img.get_data()
+    T2m = img.get_fdata()
     T2m = T2m.astype(np.float64, copy=False)
 
     img  = nib.load(path_to_save_data + 'T2_IE.nii.gz')
-    T2IE = img.get_data()
+    T2IE = img.get_fdata()
     T2IE = T2IE.astype(np.float64, copy=False)
 
     img  = nib.load(path_to_save_data + 'TWC.nii.gz')
-    Ktotal = img.get_data()
+    Ktotal = img.get_fdata()
     Ktotal = Ktotal.astype(np.float64, copy=False)
 
     img  = nib.load(path_to_save_data + 'FA.nii.gz')
-    FA = img.get_data()
+    FA = img.get_fdata()
     FA = FA.astype(np.float64, copy=False)
 
     plt.subplot(3, 3, 1).set_axis_off()

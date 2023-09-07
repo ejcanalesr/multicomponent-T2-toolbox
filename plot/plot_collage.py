@@ -24,7 +24,7 @@ def colorbar(mappable):
 
 #_______________________________________________________________________________
 params = {
-'text.latex.preamble': ['\\usepackage{gensymb}'],
+'text.latex.preamble': r'\usepackage{gensymb}',
 'image.origin': 'lower',
 'image.interpolation': 'nearest',
 'image.cmap': 'gray',
@@ -50,7 +50,7 @@ Slice=40
 # X2_I
 path_to_save_data = '/media/Disco1T/multimodal/Siemens/Three_controls_scan_rescan/MWF_Controls_001/Scan_preproc/recon_all_X2-I_GRASE_s2FA_thr40_T2s60_X2_rbias_tv_auto/'
 img  = nib.load(path_to_save_data + 'MWF.nii.gz')
-fM = img.get_data()
+fM = img.get_fdata()
 fM = fM.astype(np.float64, copy=False)
 
 plt.subplot(4, 4, 1).set_axis_off()
@@ -60,7 +60,7 @@ plt.title('Myelin WF')
 colorbar(im1)
 
 img  = nib.load(path_to_save_data + 'IEWF.nii.gz')
-fIE = img.get_data()
+fIE = img.get_fdata()
 fIE = fIE.astype(np.float64, copy=False)
 
 plt.subplot(4, 4, 2).set_axis_off()
@@ -69,7 +69,7 @@ plt.title('Intra+Extra WF')
 colorbar(im2)
 
 img  = nib.load(path_to_save_data + 'T2_IE.nii.gz')
-T2IE = img.get_data()
+T2IE = img.get_fdata()
 T2IE = T2IE.astype(np.float64, copy=False)
 
 plt.subplot(4, 4, 3).set_axis_off()
@@ -78,7 +78,7 @@ plt.title('T2-IE')
 colorbar(im5)
 
 img  = nib.load(path_to_save_data + 'TWC.nii.gz')
-Ktotal = img.get_data()
+Ktotal = img.get_fdata()
 Ktotal = Ktotal.astype(np.float64, copy=False)
 
 plt.subplot(4, 4, 4).set_axis_off()
@@ -91,7 +91,7 @@ colorbar(im6)
 path_to_save_data = '/media/Disco1T/multimodal/Siemens/Three_controls_scan_rescan/MWF_Controls_001/Scan_preproc/recon_all_X2-L_GRASE_s2FA_thr40_T2s60_X2_rbias_tv_auto/'
 
 img  = nib.load(path_to_save_data + 'MWF.nii.gz')
-fM = img.get_data()
+fM = img.get_fdata()
 fM = fM.astype(np.float64, copy=False)
 
 plt.subplot(4, 4, 5).set_axis_off()
@@ -100,7 +100,7 @@ plt.title('Myelin VF')
 colorbar(im1)
 
 img  = nib.load(path_to_save_data + 'IEWF.nii.gz')
-fIE = img.get_data()
+fIE = img.get_fdata()
 fIE = fIE.astype(np.float64, copy=False)
 
 plt.subplot(4, 4, 6).set_axis_off()
@@ -109,7 +109,7 @@ plt.title('Intra+Extra VF')
 colorbar(im2)
 
 img  = nib.load(path_to_save_data + 'T2_IE.nii.gz')
-T2IE = img.get_data()
+T2IE = img.get_fdata()
 T2IE = T2IE.astype(np.float64, copy=False)
 
 plt.subplot(4, 4, 7).set_axis_off()
@@ -118,7 +118,7 @@ plt.title('T2-tissues')
 colorbar(im5)
 
 img  = nib.load(path_to_save_data + 'TWC.nii.gz')
-Ktotal = img.get_data()
+Ktotal = img.get_fdata()
 Ktotal = Ktotal.astype(np.float64, copy=False)
 
 plt.subplot(4, 4, 8).set_axis_off()
@@ -130,7 +130,7 @@ colorbar(im6)
 # X2_Lcp
 path_to_save_data = '/media/Disco1T/multimodal/Siemens/Three_controls_scan_rescan/MWF_Controls_001/Scan_preproc/recon_all_X2-L-cp_GRASE_s2FA_thr40_T2s60_X2_rbias_tv_auto/'
 img  = nib.load(path_to_save_data + 'MWF.nii.gz')
-fM = img.get_data()
+fM = img.get_fdata()
 fM = fM.astype(np.float64, copy=False)
 
 plt.subplot(4, 4, 9).set_axis_off()
@@ -139,7 +139,7 @@ plt.title('Myelin VF')
 colorbar(im1)
 
 img  = nib.load(path_to_save_data + 'IEWF.nii.gz')
-fIE = img.get_data()
+fIE = img.get_fdata()
 fIE = fIE.astype(np.float64, copy=False)
 
 plt.subplot(4, 4, 10).set_axis_off()
