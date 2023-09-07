@@ -124,7 +124,7 @@ def fitting_slice_T2(mask_1d, data_1d, FA_index_1d, nx, Dic_3D, lambda_reg, T2di
             if (mask_1d[voxelx] > 0.0) & (np.sum(data_1d[voxelx, :]) > 0.0):
                 # ==================== Reconstruction
                 M       = np.ascontiguousarray(data_1d[voxelx, :])
-                index_i = np.int(FA_index_1d[voxelx])
+                index_i = np.int_(FA_index_1d[voxelx])
                 Kernel  = np.ascontiguousarray(Dic_3D[:,:,index_i])
                 km_i    = M[0]
                 #pdb.set_trace()
@@ -165,11 +165,11 @@ def fitting_slice_T2(mask_1d, data_1d, FA_index_1d, nx, Dic_3D, lambda_reg, T2di
 def motor_recon_met2(TE_array, path_to_data, path_to_mask, path_to_save_data, TR, reg_method, reg_matrix, denoise, FA_method, FA_smooth, myelin_T2, num_cores):
     # Load Data and Mask
     img      = nib.load(path_to_data)
-    data     = img.get_data()
+    data     = img.get_fdata()
     data     = data.astype(np.float64, copy=False)
 
     img_mask = nib.load(path_to_mask)
-    mask     = img_mask.get_data()
+    mask     = img_mask.get_fdata()
     mask     = mask.astype(np.int64, copy=False)
 
     print('--------- Data shape -----------------')
@@ -296,9 +296,9 @@ def motor_recon_met2(TE_array, path_to_data, path_to_mask, path_to_save_data, TR
         for voxelt in progressbar.progressbar(range(nt), redirect_stdout=True):
             print(voxelt+1, ' volumes processed')
             data_vol  = np.squeeze(data[:,:,:,voxelt])
-            sigma_est = np.mean(estimate_sigma(data_vol, multichannel=False))
+            sigma_est = np.mean(estimate_sigma(data_vol, channel_axis=None))
             #data[:,:,:,voxelt] = denoise_tv_chambolle(data_vol, weight=1.0*sigma_est, eps=0.0002, n_iter_max=200, multichannel=False)
-            data[:,:,:,voxelt] = denoise_tv_chambolle(data_vol, weight=2.0*sigma_est, eps=0.0002, n_iter_max=200, multichannel=False)
+            data[:,:,:,voxelt] = denoise_tv_chambolle(data_vol, weight=2.0*sigma_est, eps=0.0002, max_num_iter=200, channel_axis=None)
         #end for
         outImg = nib.Nifti1Image(data, img.affine)
         nib.save(outImg, path_to_save_data + 'Data_denoised.nii.gz')
@@ -384,7 +384,7 @@ def motor_recon_met2(TE_array, path_to_data, path_to_mask, path_to_save_data, TR
             for voxelz in range(nz):
                 if mask[voxelx, voxely,voxelz] == 1:
                     total_signal = total_signal + data[voxelx,voxely,voxelz, :]
-                    ind_xyz      = np.int(FA_index[voxelx,voxely,voxelz])
+                    ind_xyz      = np.int_(FA_index[voxelx,voxely,voxelz])
                     total_Kernel = total_Kernel + Dic_3D[:,:,ind_xyz]
                     nv = nv + 1.0
             #end vz
@@ -413,7 +413,7 @@ def motor_recon_met2(TE_array, path_to_data, path_to_mask, path_to_save_data, TR
     plt.axvline(x=40.0, color='k', linestyle='--', ymin=0)
     plt.title('Mean spectrum', fontsize=18)
     plt.xlabel('T2', fontsize=18)
-    plt.ylabel('Intesity', fontsize=18)
+    plt.ylabel('Intensity', fontsize=18)
     ax0.set_xlim(T2s[0], T2s[-1])
     ax0.set_ylim(0, np.max(mean_T2_dist)*1.2)
     ax0.tick_params(axis='both', which='major', labelsize=16)
