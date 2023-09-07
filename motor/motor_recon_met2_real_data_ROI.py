@@ -152,15 +152,15 @@ def create_Laplacian_matrix(Npc, order):
 def motor_recon_met2_ROIs(TE_array, path_to_data, path_to_mask, path_to_ROIs, path_to_save_data, TR, reg_matrix, denoise, FA_method, FA_smooth, myelin_T2, num_cores):
     # Load Data, Mask, and ROIs
     img      = nib.load(path_to_data)
-    data     = img.get_data()
+    data     = img.get_fdata()
     data     = data.astype(np.float64, copy=False)
 
     img_mask = nib.load(path_to_mask)
-    mask     = img_mask.get_data()
+    mask     = img_mask.get_fdata()
     mask     = mask.astype(np.int64, copy=False)
 
     img_ROIs = nib.load(path_to_ROIs)
-    ROIs     = img_ROIs.get_data()
+    ROIs     = img_ROIs.get_fdata()
     ROIs     = ROIs.astype(np.int64, copy=False)
 
     print('--------- Data shape -----------------')
@@ -392,7 +392,7 @@ def motor_recon_met2_ROIs(TE_array, path_to_data, path_to_mask, path_to_ROIs, pa
     plt.axvline(x=40.0, color='k', linestyle='--', ymin=0)
     plt.title('Mean spectrum', fontsize=18)
     plt.xlabel('T2', fontsize=18)
-    plt.ylabel('Intesity', fontsize=18)
+    plt.ylabel('Intensity', fontsize=18)
     ax0.set_xlim(T2s[0], T2s[-1])
     ax0.set_ylim(0, np.max(mean_T2_dist)*1.2)
     ax0.tick_params(axis='both', which='major', labelsize=16)
@@ -453,7 +453,7 @@ def motor_recon_met2_ROIs(TE_array, path_to_data, path_to_mask, path_to_ROIs, pa
         plt.axvline(x=40.0, color='k', linestyle='--', ymin=0)
         plt.title('Mean spectrum', fontsize=18)
         plt.xlabel('T2', fontsize=18)
-        plt.ylabel('Intesity', fontsize=18)
+        plt.ylabel('Intensity', fontsize=18)
         ax0.set_xlim(T2s[0], T2s[-1])
         ax0.set_ylim(0, np.max(x_sol)*1.2)
         ax0.tick_params(axis='both', which='major', labelsize=16)

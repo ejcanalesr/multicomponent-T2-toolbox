@@ -27,11 +27,11 @@ def plot_mean_spectrum_slices(path_to_save_data, path_to_mask, Slice, reg_method
 
     # ------------------------------------------------------------------------------
     img      = nib.load(path_to_data)
-    data     = img.get_data()
+    data     = img.get_fdata()
     data     = data.astype(np.float64, copy=False)
 
     img_mask = nib.load(path_to_mask)
-    mask     = img_mask.get_data()
+    mask     = img_mask.get_fdata()
     mask     = mask.astype(np.float64, copy=False)
 
     mask2 = np.zeros_like(mask)

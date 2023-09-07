@@ -24,7 +24,7 @@ def colorbar(mappable):
 
 #_______________________________________________________________________________
 params = {
-'text.latex.preamble': ['\\usepackage{gensymb}'],
+'text.latex.preamble': r'\usepackage{gensymb}',
 'image.origin': 'lower',
 'image.interpolation': 'nearest',
 'image.cmap': 'gray',
@@ -51,7 +51,7 @@ Slice=40
 method='X2-L1'
 path_to_save_data = '/media/Disco1T/multimodal/MET2_relaxometry_codes/Recon_folder/scan_rescan/001_scan/recon_all_' + method + '/'
 img  = nib.load(path_to_save_data + 'fM.nii.gz')
-fM = img.get_data()
+fM = img.get_fdata()
 fM = fM.astype(np.float64, copy=False)
 
 plt.subplot(5, 4, 1).set_axis_off()
@@ -61,7 +61,7 @@ plt.title('MWF')
 #colorbar(im1)
 
 img  = nib.load(path_to_save_data + 'fIE.nii.gz')
-fIE = img.get_data()
+fIE = img.get_fdata()
 fIE = fIE.astype(np.float64, copy=False)
 
 plt.subplot(5, 4, 2).set_axis_off()
@@ -70,7 +70,7 @@ plt.title('IEWF')
 #colorbar(im2)
 
 img  = nib.load(path_to_save_data + 'T2_IE.nii.gz')
-T2IE = img.get_data()
+T2IE = img.get_fdata()
 T2IE = T2IE.astype(np.float64, copy=False)
 
 plt.subplot(5, 4, 3).set_axis_off()

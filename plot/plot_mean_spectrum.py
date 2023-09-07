@@ -100,11 +100,11 @@ ymax = 5000
 
 # ------------------------------------------------------------------------------
 img      = nib.load(path_to_data)
-data     = img.get_data()
+data     = img.get_fdata()
 data     = data.astype(np.float64, copy=False)
 
 img_mask = nib.load(path_to_mask)
-mask     = img_mask.get_data()
+mask     = img_mask.get_fdata()
 mask     = mask.astype(np.float64, copy=False)
 
 # for testing: selects a single slice
